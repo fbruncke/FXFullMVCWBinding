@@ -4,19 +4,13 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
-public class OverviewController {
+public class EmptyviewController {
     @FXML
     private Label welcomeText;
 
     @FXML
     protected void onHelloButtonClick() {
-        welcomeText.setText("Welcome to JavaFX Application!");
-    }
-
-    @FXML
-    protected void onEmptyViewButtonClick() {
-
-        Main.changeScene(ControllerNames.EmptyView);
+        welcomeText.setText("Welcome emptyview controller!");
     }
 
 

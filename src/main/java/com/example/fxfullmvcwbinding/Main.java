@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
 
 public class Main extends Application {
@@ -15,7 +16,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        Application.setUserAgentStylesheet(getClass().getResource("Style.css").toExternalForm());
+        //Application.setUserAgentStylesheet(getClass().getResource("Style.css").toExternalForm());
 
         primaryStageHolder = stage;
         //FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("overview.fxml"));
@@ -31,6 +32,9 @@ public class Main extends Application {
 
         scenes.add(new SceneCtrlNamePair( overViewScene, ControllerNames.OverView));
         scenes.add(new SceneCtrlNamePair( detailScene, ControllerNames.DetailsView));
+
+        //Less copied code - wrap it in a method
+        scenes.add(new SceneCtrlNamePair( buildScene("emptyview.fxml", "Style.css"), ControllerNames.EmptyView) );
 
         stage.setTitle("Main");
         stage.setScene(overViewScene);
@@ -51,8 +55,13 @@ public class Main extends Application {
         }
     }
 
-
-
+    private Scene buildScene(String resource, String cssResource) throws IOException {
+        FXMLLoader paneLoader = new FXMLLoader(getClass().getResource(resource));
+        Parent pane = paneLoader.load();
+        Scene returnScene = new Scene(pane, 600, 600);
+        returnScene.getStylesheets().add(getClass().getResource(cssResource).toExternalForm());
+        return returnScene;
+    }
     public static void main(String[] args) {
         launch();
     }

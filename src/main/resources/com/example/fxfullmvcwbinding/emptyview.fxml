@@ -6,17 +6,16 @@
 <?import javafx.scene.control.Button?>
 
 <VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.example.fxfullmvcwbinding.OverviewController">
+      fx:controller="com.example.fxfullmvcwbinding.EmptyviewController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
     </padding>
 
-    <Label fx:id="welcomeText" text="Overview"/>
+    <Label  text="emptyview"/>
+    <Label fx:id="welcomeText" text="emptyview"/>
     <Button text="Test" onAction="#onHelloButtonClick"/>
 
     <Button fx:id="btnDetails" onAction="#changeView" layoutY="151.0">
         <text>Go to details view</text>
     </Button >
-
-    <Button text="Go to empty view" onAction="#onEmptyViewButtonClick"/>
 </VBox>
